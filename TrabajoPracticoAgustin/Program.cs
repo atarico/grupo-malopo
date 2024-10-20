@@ -36,6 +36,7 @@ namespace TrabajoPracticoAgustin
                         break;
 
                     case 3:
+                        sistemaProyecto.EliminarProyecto();
                         break;
 
                     case 4:

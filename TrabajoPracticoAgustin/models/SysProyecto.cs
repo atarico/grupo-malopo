@@ -30,9 +30,9 @@ namespace TrabajoPracticoAgustin.models
             Console.WriteLine("Ingrese el tipo de proyecto\n" +
                 "1 ->        Desarrollo web\n" +
                 "2 ->        Desarrollo movil\n");
-            tipo = (TipoProyecto)Enum.Parse(typeof(TipoProyecto), Console.ReadLine());
+            TipoProyecto tipo = (TipoProyecto)Enum.Parse(typeof(TipoProyecto), Console.ReadLine());
 
-            if (tipo == TipoProyecto.DesarrolloWeb)
+            if ((int)tipo == 1)
             {
                 Console.WriteLine("Que tecnologia vas a usar?\n " +
                     "1 ->      React\n" +
@@ -42,7 +42,7 @@ namespace TrabajoPracticoAgustin.models
                 DesarrolloWeb desarrolloWeb = new DesarrolloWeb(nombre, estado, desarrolladores, tecnologia);
                 proyectos.Add(desarrolloWeb);
             }
-            else
+            else if ((int)tipo == 2)
             {
                 Console.WriteLine("Plataformas objetivo?\n " +
                    "1 ->         iOS\n" +
@@ -61,13 +61,29 @@ namespace TrabajoPracticoAgustin.models
         }
         public void EliminarProyecto()
         {
-
+            Console.WriteLine("Que proyecto quieres eliminar? (nombre)");
+            string nombre = Console.ReadLine();
+            bool seEncontro = false;
+            foreach(var proyecto in proyectos)
+            {
+                if(nombre == proyecto.Nombre)
+                {
+                    Console.WriteLine($"Proyecto {proyecto.Nombre} eliminado.");
+                    proyectos.Remove(proyecto);
+                    seEncontro = true;
+                    break;
+                }
+            }
+            if(!seEncontro)
+            {
+                Console.WriteLine("no se encontro ese proyecto");
+            }
         }
         public void VisualizarProyectos()
         {
             foreach (var proyecto in proyectos)
             {
-                
+
                 if (tipo == TipoProyecto.DesarrolloWeb)
                 {
                     Console.WriteLine(proyecto);

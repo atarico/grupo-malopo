@@ -12,3 +12,10 @@ C:\Users\mamol\Source\Repos\MaximoLadner\TrabajoPractico\TrabajoPracticoAgustin\
 C:\Users\mamol\Source\Repos\MaximoLadner\TrabajoPractico\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.csproj.CoreCompileInputs.cache
 C:\Users\mamol\Source\Repos\MaximoLadner\TrabajoPractico\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.exe
 C:\Users\mamol\Source\Repos\MaximoLadner\TrabajoPractico\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.pdb
+C:\Users\mamol\Source\Repos\grupo-malopo\TrabajoPracticoAgustin\bin\Debug\TrabajoPracticoAgustin.exe.config
+C:\Users\mamol\Source\Repos\grupo-malopo\TrabajoPracticoAgustin\bin\Debug\TrabajoPracticoAgustin.exe
+C:\Users\mamol\Source\Repos\grupo-malopo\TrabajoPracticoAgustin\bin\Debug\TrabajoPracticoAgustin.pdb
+C:\Users\mamol\Source\Repos\grupo-malopo\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.csproj.AssemblyReference.cache
+C:\Users\mamol\Source\Repos\grupo-malopo\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.csproj.CoreCompileInputs.cache
+C:\Users\mamol\Source\Repos\grupo-malopo\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.exe
+C:\Users\mamol\Source\Repos\grupo-malopo\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.pdb
