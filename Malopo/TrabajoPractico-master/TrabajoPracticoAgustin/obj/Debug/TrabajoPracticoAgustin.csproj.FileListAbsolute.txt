@@ -1,0 +1,7 @@
+C:\Users\mamol\source\repos\TrabajoPracticoAgustin\TrabajoPracticoAgustin\bin\Debug\TrabajoPracticoAgustin.exe.config
+C:\Users\mamol\source\repos\TrabajoPracticoAgustin\TrabajoPracticoAgustin\bin\Debug\TrabajoPracticoAgustin.exe
+C:\Users\mamol\source\repos\TrabajoPracticoAgustin\TrabajoPracticoAgustin\bin\Debug\TrabajoPracticoAgustin.pdb
+C:\Users\mamol\source\repos\TrabajoPracticoAgustin\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.csproj.AssemblyReference.cache
+C:\Users\mamol\source\repos\TrabajoPracticoAgustin\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.csproj.CoreCompileInputs.cache
+C:\Users\mamol\source\repos\TrabajoPracticoAgustin\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.exe
+C:\Users\mamol\source\repos\TrabajoPracticoAgustin\TrabajoPracticoAgustin\obj\Debug\TrabajoPracticoAgustin.pdb
