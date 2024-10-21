@@ -10,7 +10,7 @@ namespace TrabajoPracticoAgustin
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
             SysProyecto sistemaProyecto = new SysProyecto();
@@ -33,9 +33,11 @@ namespace TrabajoPracticoAgustin
                         break;
 
                     case 2:
+                        sistemaProyecto.ModificarProyecto();
                         break;
 
                     case 3:
+                        sistemaProyecto.EliminarProyecto();
                         break;
 
                     case 4:

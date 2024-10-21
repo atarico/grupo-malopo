@@ -15,15 +15,15 @@ namespace TrabajoPracticoAgustin
         public EstadoProyecto EstadoActual { get; set; }
         public int CantidadDesarrolladores { get; set; }
         public TipoProyecto TecnologiaProyecto { get; set; }
-
-
         public DateTime FechaInicio { get; set; }
-        public Proyecto(string nombre, EstadoProyecto estado, int desarrolladores)
+
+        public Proyecto(string nombre, EstadoProyecto estado, int desarrolladores, DateTime fechaInicio, TipoProyecto tipoProyecto)
         {
             Nombre = nombre;
             EstadoActual = estado;
             CantidadDesarrolladores = desarrolladores;
-            FechaInicio = DateTime.Now;
+            FechaInicio = fechaInicio;
+            TecnologiaProyecto = tipoProyecto;
         }
         public override string ToString()
         {
@@ -37,20 +37,56 @@ namespace TrabajoPracticoAgustin
         {
             if (TecnologiaProyecto.ToString() == "DesarrolloWeb")
             {
-                return 30;
+                if (EstadoActual.ToString() == "Planificacion")
+                {
+                    return 30;
+                }
+                else if (EstadoActual.ToString() == "EnDesarrollo")
+                {
+                    return 30 - 10;
+                }
+                else if (EstadoActual.ToString() == "EnPrueba")
+                {
+                    return 30 - 25;
+                }
+                else if (EstadoActual.ToString() == "Completado")
+                {
+                    return 30 - 30;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             else if (TecnologiaProyecto.ToString() == "DesarrolloMovil")
             {
-                return 50;
+                if (EstadoActual.ToString() == "Planificacion")
+                {
+                    return 50;
+                }
+                else if (EstadoActual.ToString() == "EnDesarrollo")
+                {
+                    return 50 - 10;
+                }
+                else if (EstadoActual.ToString() == "EnPrueba")
+                {
+                    return 50 - 30;
+                }
+                else if (EstadoActual.ToString() == "Completado")
+                {
+                    return 50 - 50;
+                }
+                else
+                {
+                    return 0;
+                }
             }
-            else
-            {
-                return 0;
-            }
+            return 0;
         }
         public void CalcularFechaEstimada()
         {
-            Console.WriteLine("Fecha de devolucion estimada: " + FechaInicio.AddDays(CalcularDuracionEstimada()));
+            Console.WriteLine("Fecha de devolucion estimada: " + FechaInicio.AddDays(CalcularDuracionEstimada()) + "\n-------------------------------------------------");
         }
+        public abstract string ObtenerDatoEspecifico();
     }
 }
