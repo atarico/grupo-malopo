@@ -8,10 +8,10 @@ namespace TrabajoPracticoAgustin.enums
 {
     public enum EstadoProyecto
     {
-        Planificacion,
+        Planificacion = 1,
         EnDesarrollo,
-        EnPrueba,
         Completado,
+        EnPrueba,
         Cancelado
     }
 }

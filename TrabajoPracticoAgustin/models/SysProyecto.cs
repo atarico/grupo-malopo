@@ -40,10 +40,10 @@ namespace TrabajoPracticoAgustin.models
 
             if ((int)tipo == 1)
             {
-                Console.WriteLine("Que tecnologia vas a usar?\n " +
-                  "1 ->      React\n" +
-                    "2 ->      Angular\n" +
-                    "3 ->      Vue.js\n");
+                Console.WriteLine("Que tecnologia vas a usar?\n" +
+                 "1 ->    React\n" +
+                 "2 ->    Angular\n" +
+                 "3 ->    Vue.js\n");
                 string tecnologia = Console.ReadLine();
                 Proyecto desarrolloWeb = new DesarrolloWeb(nombre, estado, desarrolladores, fecha, tipo, tecnologia);
                 proyectos.Add(desarrolloWeb);
@@ -64,42 +64,50 @@ namespace TrabajoPracticoAgustin.models
         }
         public void ModificarProyecto()
         {
-            Console.WriteLine("Los proyectos son los siguientes");
+            if (proyectos == null || proyectos.Count == 0) 
+            {
+                Console.WriteLine("No tienes ningún proyecto para modificar.");
+                return; 
+            }
 
+            bool seEncontro = false;
+            Console.WriteLine("Los proyectos son los siguientes:");
 
             foreach (var proyecto in proyectos)
             {
                 Console.WriteLine(proyecto.Nombre);
             }
-            Console.WriteLine("¿Cual desea modificar? (por nombre)");
+
+            Console.WriteLine("¿Cuál desea modificar? (por nombre)");
             string nombre = Console.ReadLine();
+
             foreach (var proyectito in proyectos)
             {
                 if (nombre == proyectito.Nombre)
                 {
                     Console.WriteLine("Ingrese el nuevo nombre del proyecto: ");
                     string nombreNuevo = Console.ReadLine();
-                    Console.WriteLine("ingrese el estado del nuevo proyecto\n " +
-                       "1 ->       Planificación   \n" +
-                        " 2 ->       En Desarrollo    \n" +
-                        " 3 ->       Completado       \n" +
-                        " 4 ->       En prueba        \n" +
-                        " 5 ->       Cancelado        \n");
+                    Console.WriteLine("Ingrese el estado del nuevo proyecto\n " +
+                        "1 ->       Planificación   \n" +
+                        "2 ->       En Desarrollo    \n" +
+                        "3 ->       En prueba        \n" +
+                        "4 ->       Completado       \n" +
+                        "5 ->       Cancelado        \n");
                     EstadoProyecto estadoNuevo = (EstadoProyecto)Enum.Parse(typeof(EstadoProyecto), Console.ReadLine());
-                    Console.WriteLine("Ingrese la cantidad de desarrolladores que trabajaran en el proyecto nuevo: ");
+                    Console.WriteLine("Ingrese la cantidad de desarrolladores que trabajarán en el nuevo proyecto: ");
                     int desarrolladoresProyectoNuevo = int.Parse(Console.ReadLine());
                     Console.WriteLine("Ingrese el tipo de proyecto\n" +
                         "1 ->        Desarrollo web\n" +
-                        "2 ->        Desarrollo movil\n");
-                    tipo = (TipoProyecto)Enum.Parse(typeof(TipoProyecto), Console.ReadLine());
+                        "2 ->        Desarrollo móvil\n");
+                    TipoProyecto tipo = (TipoProyecto)Enum.Parse(typeof(TipoProyecto), Console.ReadLine());
                     DateTime fechaNueva = DateTime.Now;
 
                     if ((int)tipo == 1)
                     {
-                        Console.WriteLine("Que tecnologia vas a usar?\n " +
-                          "1 ->      React\n" +
-                            "2 ->      Angular\n" +
-                            "3 ->      Vue.js\n");
+                        Console.WriteLine("¿Qué tecnología vas a usar?\n " +
+                            "1 ->     React    \n" +
+                            "2 ->      Angular \n" +
+                            "3 ->      Vue.js \n");
                         string tecnologiaNueva = Console.ReadLine();
                         Proyecto desarrolloWeb = new DesarrolloWeb(nombreNuevo, estadoNuevo, desarrolladoresProyectoNuevo, fechaNueva, tipo, tecnologiaNueva);
                         proyectos.Add(desarrolloWeb);
@@ -108,29 +116,41 @@ namespace TrabajoPracticoAgustin.models
                     {
                         Console.WriteLine("Plataformas objetivo?\n " +
                            "1 ->         iOS\n" +
-                            " 2 ->         Android\n" +
-                            " 3 ->         Windows Phone\n");
+                           "2 ->         Android\n" +
+                           "3 ->         Windows Phone\n");
                         string plataformas = Console.ReadLine();
                         Proyecto desarrollomovil = new DesarrolloMovil(nombreNuevo, estadoNuevo, desarrolladoresProyectoNuevo, fechaNueva, tipo, plataformas);
                         proyectos.Add(desarrollomovil);
                     }
                     proyectos.Remove(proyectito);
-                    proyectos.Remove(proyectito);
                     Console.WriteLine("Proyecto modificado correctamente.");
-                    break;
+                    seEncontro = true; 
+                    break; 
                 }
+            }
+            if (!seEncontro) 
+            {
+                Console.WriteLine("No se encontró ningún proyecto con ese nombre.");
             }
         }
         public void EliminarProyecto()
         {
-            Console.WriteLine("Que proyecto quieres eliminar? (nombre)");
+        
+            if (proyectos == null || proyectos.Count == 0)
+            {
+                Console.WriteLine("No tienes ningún proyecto para eliminar.");
+                return; 
+            }
+
+            Console.WriteLine("¿Qué proyecto quieres eliminar? (nombre)");
             foreach (var proyect in proyectos)
             {
-                Console.WriteLine("----------------------------------");
                 Console.WriteLine(proyect.Nombre);
+                Console.WriteLine("----------------------------------");
             }
-            Console.WriteLine("Estos son, ahora elegi cual deseas eliminar");
+            Console.WriteLine("Ahora elige cuál deseas eliminar:");
             string nombre = Console.ReadLine();
+
             bool seEncontro = false;
             foreach (var proyecto in proyectos)
             {
@@ -139,16 +159,18 @@ namespace TrabajoPracticoAgustin.models
                     Console.WriteLine($"Proyecto {proyecto.Nombre} eliminado.");
                     proyectos.Remove(proyecto);
                     seEncontro = true;
-                    break;
+                    break; 
                 }
             }
+
             if (!seEncontro)
             {
-                Console.WriteLine("no se encontro ese proyecto");
+                Console.WriteLine("No se encontró ese proyecto.");
             }
         }
         public void VisualizarProyectos()
         {
+            bool SeEncontro = false;
             foreach (var proyecto in proyectos)
             {
 
@@ -156,12 +178,18 @@ namespace TrabajoPracticoAgustin.models
                 {
                     Console.WriteLine(proyecto);
                     proyecto.CalcularFechaEstimada();
+                    SeEncontro = true;
                 }
                 else if (tipo2 == TipoProyecto.DesarrolloMovil)
                 {
                     Console.WriteLine(proyecto);
                     proyecto.CalcularFechaEstimada();
+                    SeEncontro = true;
                 }
+            }
+            if(!SeEncontro)
+            {
+                Console.WriteLine("no tienes ningun proyecto para ver.");
             }
         }
         public void CargarArchivos()
@@ -195,10 +223,6 @@ namespace TrabajoPracticoAgustin.models
                 }
             }
         }
-
-
-
-
         public void GuardarProyectos()
         {
             using (StreamWriter writer = new StreamWriter(ArchivoDatos))

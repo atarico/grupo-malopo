@@ -30,7 +30,9 @@ namespace TrabajoPracticoAgustin
             return $"    Nombre: {Nombre} \n" +
                 $"       Estado: {EstadoActual} \n" +
                 $"       Cantidad de desarrolladores: {CantidadDesarrolladores}  \n" +
-                $"       Fecha de inicio {FechaInicio.Date}\n";
+                $"       Tipo de Desarrollo: {TecnologiaProyecto}\n" +
+                $"       Fecha de inicio: {FechaInicio.Date}\n";
+
         }
 
         public int CalcularDuracionEstimada()
