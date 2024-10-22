@@ -21,6 +21,8 @@ namespace TrabajoPracticoAgustin.models
         static TipoProyecto tipo2;
         public void AgregaProyecto()
         {
+            Thread.Sleep(1000);
+            Console.Clear();
             Console.WriteLine("Ingrese el nombre del proyecto: ");
             string nombre = Console.ReadLine();
             Console.WriteLine("ingrese el estado del proyecto\n " +
@@ -60,24 +62,30 @@ namespace TrabajoPracticoAgustin.models
             }
 
             Console.WriteLine("Proyecto guardado correctamente.");
-
+            Thread.Sleep(1000);
+            Console.Clear();
         }
         public void ModificarProyecto()
         {
+            Thread.Sleep(1000);
+            Console.Clear();
             if (proyectos == null || proyectos.Count == 0) 
             {
                 Console.WriteLine("No tienes ningún proyecto para modificar.");
+                Thread.Sleep(1000);
+                Console.Clear();
                 return; 
             }
 
             bool seEncontro = false;
             Console.WriteLine("Los proyectos son los siguientes:");
-
+            Console.WriteLine("\n");
             foreach (var proyecto in proyectos)
             {
                 Console.WriteLine(proyecto.Nombre);
+                Console.WriteLine("___________________");
             }
-
+            Console.WriteLine("\n");
             Console.WriteLine("¿Cuál desea modificar? (por nombre)");
             string nombre = Console.ReadLine();
 
@@ -124,30 +132,39 @@ namespace TrabajoPracticoAgustin.models
                     }
                     proyectos.Remove(proyectito);
                     Console.WriteLine("Proyecto modificado correctamente.");
-                    seEncontro = true; 
+                    seEncontro = true;
+                    Thread.Sleep(1000);
+                    Console.Clear();
                     break; 
                 }
             }
             if (!seEncontro) 
             {
                 Console.WriteLine("No se encontró ningún proyecto con ese nombre.");
+                Thread.Sleep(1000);
+                Console.Clear();
             }
         }
         public void EliminarProyecto()
         {
-        
+            Thread.Sleep(1000);
+            Console.Clear();
             if (proyectos == null || proyectos.Count == 0)
             {
                 Console.WriteLine("No tienes ningún proyecto para eliminar.");
-                return; 
+                Thread.Sleep(1000);
+                Console.Clear();
+                return;
             }
 
             Console.WriteLine("¿Qué proyecto quieres eliminar? (nombre)");
+            Console.WriteLine("\n");
             foreach (var proyect in proyectos)
             {
                 Console.WriteLine(proyect.Nombre);
                 Console.WriteLine("----------------------------------");
             }
+            Console.WriteLine("\n");
             Console.WriteLine("Ahora elige cuál deseas eliminar:");
             string nombre = Console.ReadLine();
 
@@ -162,34 +179,55 @@ namespace TrabajoPracticoAgustin.models
                     break; 
                 }
             }
-
             if (!seEncontro)
             {
                 Console.WriteLine("No se encontró ese proyecto.");
+                Thread.Sleep(1000);
+                Console.Clear();
             }
+            Thread.Sleep(1000);
+            Console.Clear();
         }
         public void VisualizarProyectos()
         {
-            bool SeEncontro = false;
-            foreach (var proyecto in proyectos)
+            while (true)
             {
+                Thread.Sleep(1000);
+                Console.Clear();
+                bool SeEncontro = false;
+                foreach (var proyecto in proyectos)
+                {
 
-                if (tipo2 == TipoProyecto.DesarrolloWeb)
-                {
-                    Console.WriteLine(proyecto);
-                    proyecto.CalcularFechaEstimada();
-                    SeEncontro = true;
+                    if (tipo2 == TipoProyecto.DesarrolloWeb)
+                    {
+                        Console.WriteLine(proyecto);
+                        proyecto.CalcularFechaEstimada();
+                        SeEncontro = true;
+                    }
+                    else if (tipo2 == TipoProyecto.DesarrolloMovil)
+                    {
+                        Console.WriteLine(proyecto);
+                        proyecto.CalcularFechaEstimada();
+                        SeEncontro = true;
+                    }
                 }
-                else if (tipo2 == TipoProyecto.DesarrolloMovil)
+                if (!SeEncontro)
                 {
-                    Console.WriteLine(proyecto);
-                    proyecto.CalcularFechaEstimada();
-                    SeEncontro = true;
+                    Console.WriteLine("no tienes ningun proyecto para ver.");
+                    Console.WriteLine("\n");
                 }
-            }
-            if(!SeEncontro)
-            {
-                Console.WriteLine("no tienes ningun proyecto para ver.");
+                Console.WriteLine("Ingrese 'salir' o 'S' si quiere volver al menu");
+                string salir = Console.ReadLine();
+                if(salir == "salir" || salir == "Salir" || salir == "S" || salir == "s")
+                {
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("palabra mal escrita.");
+                }
             }
         }
         public void CargarArchivos()
@@ -217,8 +255,6 @@ namespace TrabajoPracticoAgustin.models
                         {
                             proyectos.Add(new DesarrolloMovil(nombre, estado, desarrolladores, fecha, tipo, tecnologia_plataforma));
                         }
-
-
                     }
                 }
             }

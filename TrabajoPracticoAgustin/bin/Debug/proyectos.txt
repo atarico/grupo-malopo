@@ -1,0 +1,3 @@
+maximo,Completado,12,22/10/2024 12:22:05,DesarrolloMovil,
+santino,EnPrueba,1,22/10/2024 12:23:23,DesarrolloMovil,1
+lolo,Planificacion,1,22/10/2024 12:23:35,DesarrolloMovil,3
