@@ -16,6 +16,7 @@ namespace TrabajoPracticoAgustin
             SysProyecto sistemaProyecto = new SysProyecto();
             int opcion;
             sistemaProyecto.CargarArchivos();
+            Console.ForegroundColor = ConsoleColor.Red;
             do
             {
                 Console.WriteLine("--------MENU--------");
