@@ -9,11 +9,15 @@ namespace TrabajoPracticoAgustin.models
 {
     public class DesarrolloWeb : Proyecto
     {
-        public string TecnologiaAusar {  get; set; }
-        public DesarrolloWeb(string nombre, EstadoProyecto estado, int desarrolladores, string TecnologiaAusar)
-            : base(nombre, estado, desarrolladores)
+        public string TecnologiaAusar { get; set; }
+        public DesarrolloWeb(string nombre, EstadoProyecto estado, int desarrolladores, DateTime fechaInicio, TipoProyecto tipoProyecto, string TecnologiaAusar)
+            : base(nombre, estado, desarrolladores, fechaInicio, tipoProyecto)
         {
             this.TecnologiaAusar = TecnologiaAusar;
+        }
+        public override string ObtenerDatoEspecifico()
+        {
+            return TecnologiaAusar;
         }
     }
 }

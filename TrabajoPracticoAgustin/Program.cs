@@ -10,12 +10,13 @@ namespace TrabajoPracticoAgustin
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
             SysProyecto sistemaProyecto = new SysProyecto();
             int opcion;
             sistemaProyecto.CargarArchivos();
+            Console.ForegroundColor = ConsoleColor.Red;
             do
             {
                 Console.WriteLine("--------MENU--------");
@@ -33,9 +34,11 @@ namespace TrabajoPracticoAgustin
                         break;
 
                     case 2:
+                        sistemaProyecto.ModificarProyecto();
                         break;
 
                     case 3:
+                        sistemaProyecto.EliminarProyecto();
                         break;
 
                     case 4:

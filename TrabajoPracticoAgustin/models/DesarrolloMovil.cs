@@ -9,11 +9,15 @@ namespace TrabajoPracticoAgustin.models
 {
     public class DesarrolloMovil : Proyecto
     {
-        public string PlataformasObjetivo {  get; set; }
-        public DesarrolloMovil(string nombre, EstadoProyecto estado, int desarrolladores, string PlataformaObjetivo) :
-            base(nombre,estado,desarrolladores)
+        public string PlataformasObjetivo { get; set; }
+        public DesarrolloMovil(string nombre, EstadoProyecto estado, int desarrolladores, DateTime fechaInicio, TipoProyecto tipoProyecto, string PlataformaObjetivo) :
+            base(nombre, estado, desarrolladores, fechaInicio, tipoProyecto)
         {
             this.PlataformasObjetivo = PlataformasObjetivo;
+        }
+        public override string ObtenerDatoEspecifico()
+        {
+            return PlataformasObjetivo;
         }
     }
 }
