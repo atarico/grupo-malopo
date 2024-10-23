@@ -72,7 +72,7 @@ namespace TrabajoPracticoAgustin.models
             if (proyectos == null || proyectos.Count == 0) 
             {
                 Console.WriteLine("No tienes ningún proyecto para modificar.");
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 Console.Clear();
                 return; 
             }
@@ -152,7 +152,7 @@ namespace TrabajoPracticoAgustin.models
             if (proyectos == null || proyectos.Count == 0)
             {
                 Console.WriteLine("No tienes ningún proyecto para eliminar.");
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 Console.Clear();
                 return;
             }
